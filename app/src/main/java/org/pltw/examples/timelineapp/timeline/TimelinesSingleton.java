@@ -1,5 +1,6 @@
 package org.pltw.examples.timelineapp.timeline;
 
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -11,6 +12,7 @@ public class TimelinesSingleton {
     private List<Timeline> timelines;
 
     private TimelinesSingleton() {
+        timelines = new ArrayList<>();
     }
 
     public static TimelinesSingleton getInstance() {
@@ -25,8 +27,12 @@ public class TimelinesSingleton {
         timelines.add(timeline);
     }
 
-    public void getTimeline(int position) {
-        timelines.get(position);
+    public Timeline getTimeline(int position) {
+        return timelines.get(position);
+    }
+
+    public List<Timeline> getTimelines() {
+        return timelines;
     }
 
 }

@@ -11,6 +11,7 @@ public class EventsSingleton {
     private ArrayList<TimelineEvent> events;
 
     private EventsSingleton() {
+        events = new ArrayList<>();
     }
 
     public static EventsSingleton getInstance() {
