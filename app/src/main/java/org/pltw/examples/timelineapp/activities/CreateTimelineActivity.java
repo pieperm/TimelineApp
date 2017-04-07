@@ -1,15 +1,12 @@
 package org.pltw.examples.timelineapp.activities;
 
 import android.os.Bundle;
-import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
 import android.view.View;
-import android.view.ViewGroup;
-import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.TextView;
 
 import org.pltw.examples.timelineapp.R;
 import org.pltw.examples.timelineapp.timeline.Timeline;
@@ -23,6 +20,7 @@ public class CreateTimelineActivity extends AppCompatActivity {
 
     private Button saveTimeline, exitTimeline;
     private EditText timelineNameEdit, timelineDescriptionEdit;
+    public static final String TAG = "CreateTimelineActivity";
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -51,6 +49,9 @@ public class CreateTimelineActivity extends AppCompatActivity {
 
                 Timeline timeline = new Timeline(name, description, null, null, null);
                 TimelinesSingleton.getInstance().addTimeline(timeline);
+
+                Log.i(TAG, "Created new trip: " + name);
+                Log.i(TAG, "Timelines: " + TimelinesSingleton.getInstance().getTimelines());
 
             }
         });

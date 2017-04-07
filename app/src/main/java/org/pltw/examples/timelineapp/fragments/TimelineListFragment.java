@@ -9,12 +9,14 @@ import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.TextView;
 
 import org.pltw.examples.timelineapp.R;
 import org.pltw.examples.timelineapp.activities.CreateTimelineActivity;
+import org.pltw.examples.timelineapp.activities.ViewTimelineActivity;
 import org.pltw.examples.timelineapp.timeline.Timeline;
 import org.pltw.examples.timelineapp.timeline.TimelinesSingleton;
 
@@ -43,13 +45,24 @@ public class TimelineListFragment extends Fragment {
 
         adapter.clear();
         adapter.addAll(TimelinesSingleton.getInstance().getTimelines());
-        adapter.notifyDataSetChanged();
+        //adapter.notifyDataSetChanged();
 
         createTimelineFab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Intent createTimelineIntent = new Intent(getActivity(), CreateTimelineActivity.class);
                 startActivity(createTimelineIntent);
+            }
+        });
+
+        timelinesListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> adapterView, View view, int position, long id) {
+
+                Intent goToTimeline = new Intent(TimelineListFragment.this.getActivity(), ViewTimelineActivity.class);
+                goToTimeline.putExtra(ViewTimelineActivity.EXTRA_POSITION, position);
+                startActivity(goToTimeline);
+
             }
         });
 

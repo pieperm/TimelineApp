@@ -27,6 +27,9 @@ public class MainActivity extends AppCompatActivity
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
+        // Change default fragment to Home
+        FragmentTransaction ft = getSupportFragmentManager().beginTransaction();
+        ft.replace(R.id.fragment_container, new HomeFragment()).commit();
         setTitle("Home");
 
 //        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
