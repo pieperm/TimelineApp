@@ -10,4 +10,10 @@
         android:layout_height="wrap_content"
         android:text="Test"/>
 
+    <HorizontalScrollView
+        android:id="@+id/view_timeline_scrollview"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+    </HorizontalScrollView>
+
 </LinearLayout>

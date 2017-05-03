@@ -12,13 +12,15 @@ public class Timeline {
     private String name, description;
     private ArrayList<TimelineEvent> events;
     private Date startDate, endDate;
+    private boolean isPublic;
 
-    public Timeline(String name, String description, ArrayList<TimelineEvent> events, Date startDate, Date endDate) {
+    public Timeline(String name, String description, ArrayList<TimelineEvent> events, Date startDate, Date endDate, boolean isPublic) {
         this.name = name;
         this.description = description;
         this.events = events;
         this.startDate = startDate;
         this.endDate = endDate;
+        this.isPublic = isPublic;
     }
 
     public Timeline() {
@@ -62,6 +64,14 @@ public class Timeline {
 
     public void setEndDate(Date endDate) {
         this.endDate = endDate;
+    }
+
+    public boolean isPublic() {
+        return isPublic;
+    }
+
+    public void setPublic(boolean aPublic) {
+        isPublic = aPublic;
     }
 
     // TODO: Add a toString method using StringBuilder

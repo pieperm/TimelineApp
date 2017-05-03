@@ -20,7 +20,8 @@ public class CreateTimelineActivity extends AppCompatActivity {
 
     private Button saveTimeline, exitTimeline;
     private EditText timelineNameEdit, timelineDescriptionEdit;
-    public static final String TAG = "CreateTimelineActivity";
+    private static final String TAG = "CreateTimelineActivity";
+
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -47,14 +48,31 @@ public class CreateTimelineActivity extends AppCompatActivity {
                 String name = timelineNameEdit.getText().toString();
                 String description = timelineDescriptionEdit.getText().toString();
 
-                Timeline timeline = new Timeline(name, description, null, null, null);
-                TimelinesSingleton.getInstance().addTimeline(timeline);
+                if(inputIsValid()) {
 
-                Log.i(TAG, "Created new trip: " + name);
-                Log.i(TAG, "Timelines: " + TimelinesSingleton.getInstance().getTimelines());
+                    Timeline timeline = new Timeline(name, description, null, null, null, false);
+                    TimelinesSingleton.getInstance().addTimeline(timeline);
+
+                    Log.i(TAG, "Created new trip: " + name);
+                    Log.i(TAG, "Timelines: " + TimelinesSingleton.getInstance().getTimelines());
+
+                    CreateTimelineActivity.super.onBackPressed();
+                }
+                else {
+                    // TODO: add dialog pop-up
+                    Log.i(TAG, "Invalid input");
+                }
 
             }
         });
+
+    }
+
+    private boolean inputIsValid() {
+
+        boolean nameIsValid = !timelineNameEdit.getText().toString().equals("");
+
+        return nameIsValid;
 
     }
 

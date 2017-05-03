@@ -40,4 +40,5 @@
     <string name="save_edit_timeline_button_text">Save</string>
     <string name="exit_edit_timeline_buttton_text">Exit</string>
     <string name="title_activity_create_timeline">New Timeline</string>
+    <string name="title_activity_view_timeline">View Timeline</string>
 </resources>

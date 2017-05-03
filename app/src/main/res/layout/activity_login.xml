@@ -5,13 +5,13 @@
               android:layout_width="match_parent"
               android:layout_height="match_parent">
 
-    <ImageView
-        android:id="@+id/login_logo"
-        android:layout_width="match_parent"
-        android:layout_height="200dp"
-        android:src="@drawable/login_icon"
-        android:scaleType="fitXY"
-        android:adjustViewBounds="true"/>
+    <!--<ImageView-->
+        <!--android:id="@+id/login_logo"-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="200dp"-->
+        <!--android:src="@drawable/login_icon"-->
+        <!--android:scaleType="fitXY"-->
+        <!--android:adjustViewBounds="true"/>-->
 
     <EditText
         android:id="@+id/login_username_edit"
@@ -25,6 +25,12 @@
         android:layout_height="wrap_content"
         android:inputType="textPassword"
         android:hint="@string/login_password_edit_placeholder"/>
+
+    <CheckBox
+        android:id="@+id/login_stay_logged_in_checkbox"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"/>
 
     <Button
         android:id="@+id/login_button"
