@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
               android:orientation="vertical"
+              android:layout_margin="@dimen/activity_vertical_margin"
               android:layout_width="match_parent"
               android:layout_height="match_parent">
 
@@ -14,7 +15,9 @@
         android:id="@+id/settings_logout_button"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="@string/settings_logout_button_text">
+        android:text="@string/settings_logout_button_text"
+        android:background="@color/colorPrimary"
+        android:textColor="@color/white">
     </Button>
 
 </LinearLayout>

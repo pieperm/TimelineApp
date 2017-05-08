@@ -46,7 +46,7 @@ public class SignupActivity extends AppCompatActivity {
             public void onClick(View view) {
 
                 BackendlessUser user = new BackendlessUser();
-                user.setProperty("username", usernameEdit.getText().toString());
+                user.setProperty("name", usernameEdit.getText().toString());
                 user.setEmail(emailEdit.getText().toString());
                 user.setPassword(passwordEdit.getText().toString());
 

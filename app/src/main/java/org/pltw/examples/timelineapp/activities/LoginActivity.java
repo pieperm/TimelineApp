@@ -23,7 +23,7 @@ import org.pltw.examples.timelineapp.R;
 
 public class LoginActivity extends AppCompatActivity {
 
-    private EditText usernameEdit, passwordEdit;
+    private EditText emailEdit, passwordEdit;
     private Button loginButton;
     private TextView loginLink;
     private CheckBox stayLoggedInCheckbox;
@@ -36,7 +36,7 @@ public class LoginActivity extends AppCompatActivity {
 
         Backendless.initApp(this, MainActivity.APPLICATION_ID, MainActivity.SECRET_KEY, MainActivity.VERSION);
 
-        usernameEdit = (EditText)findViewById(R.id.login_username_edit);
+        emailEdit = (EditText)findViewById(R.id.login_email_edit);
         passwordEdit = (EditText)findViewById(R.id.login_password_edit);
         stayLoggedInCheckbox = (CheckBox)findViewById(R.id.login_stay_logged_in_checkbox);
         loginButton = (Button)findViewById(R.id.login_button);
@@ -46,23 +46,22 @@ public class LoginActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
 
-                Intent loginIntent = new Intent(LoginActivity.this, MainActivity.class);
-                startActivity(loginIntent);
-
                 Backendless.UserService.login(
-                        usernameEdit.getText().toString(),
+                        emailEdit.getText().toString(),
                         passwordEdit.getText().toString(),
                         new AsyncCallback<BackendlessUser>() {
                             @Override
                             public void handleResponse(BackendlessUser response) {
-
+                                Intent loginIntent = new Intent(LoginActivity.this, MainActivity.class);
+                                startActivity(loginIntent);
+                                finish();
                             }
 
                             @Override
                             public void handleFault(BackendlessFault fault) {
                                 MainActivity.createAlertDialog(LoginActivity.this, "Login Failed", fault.getMessage());
                             }
-                        }, stayLoggedInCheckbox.isChecked());
+                        });
 
 
             }

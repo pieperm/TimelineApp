@@ -41,4 +41,5 @@
     <string name="exit_edit_timeline_buttton_text">Exit</string>
     <string name="title_activity_create_timeline">New Timeline</string>
     <string name="title_activity_view_timeline">View Timeline</string>
+    <string name="login_checkbox_text">Remember me</string>
 </resources>
