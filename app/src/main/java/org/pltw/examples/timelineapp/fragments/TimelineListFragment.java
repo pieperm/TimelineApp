@@ -45,7 +45,7 @@ public class TimelineListFragment extends Fragment {
 
         adapter.clear();
         adapter.addAll(TimelinesSingleton.getInstance().getTimelines());
-        //adapter.notifyDataSetChanged();
+        adapter.notifyDataSetChanged();
 
         createTimelineFab.setOnClickListener(new View.OnClickListener() {
             @Override

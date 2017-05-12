@@ -8,6 +8,10 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 
+import com.backendless.Backendless;
+import com.backendless.async.callback.AsyncCallback;
+import com.backendless.exceptions.BackendlessFault;
+
 import org.pltw.examples.timelineapp.R;
 import org.pltw.examples.timelineapp.timeline.Timeline;
 import org.pltw.examples.timelineapp.timeline.TimelinesSingleton;
@@ -53,14 +57,24 @@ public class CreateTimelineActivity extends AppCompatActivity {
                     Timeline timeline = new Timeline(name, description, null, null, null, false);
                     TimelinesSingleton.getInstance().addTimeline(timeline);
 
-                    Log.i(TAG, "Created new trip: " + name);
-                    Log.i(TAG, "Timelines: " + TimelinesSingleton.getInstance().getTimelines());
+                    Backendless.Persistence.save(timeline, new AsyncCallback<Timeline>() {
+                        @Override
+                        public void handleResponse(Timeline response) {
+                            Log.i(TAG, "Created new trip: " + timelineNameEdit.getText().toString());
+                            Log.i(TAG, "Timelines: " + TimelinesSingleton.getInstance().getTimelines());
+                            CreateTimelineActivity.super.onBackPressed();
+                        }
 
-                    CreateTimelineActivity.super.onBackPressed();
+                        @Override
+                        public void handleFault(BackendlessFault fault) {
+                            MainActivity.createAlertDialog(CreateTimelineActivity.this, "Create Timeline", fault.getMessage());
+                        }
+                    });
+
                 }
                 else {
-                    // TODO: add dialog pop-up
                     Log.i(TAG, "Invalid input");
+                    MainActivity.createAlertDialog(CreateTimelineActivity.this, "Create Timeline", "You must fill out all required fields.");
                 }
 
             }

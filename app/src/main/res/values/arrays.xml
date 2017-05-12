@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string-array name="search_filter_options">
-        <item>All</item>
         <item>Timelines</item>
         <item>Events</item>
         <item>Users</item>

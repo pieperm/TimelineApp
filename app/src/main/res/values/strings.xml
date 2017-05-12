@@ -42,4 +42,6 @@
     <string name="title_activity_create_timeline">New Timeline</string>
     <string name="title_activity_view_timeline">View Timeline</string>
     <string name="login_checkbox_text">Remember me</string>
+    <string name="home_friends_list_text">Friends</string>
+    <string name="home_feed_text">Feed</string>
 </resources>
