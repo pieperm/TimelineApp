@@ -1,5 +1,6 @@
 <resources>
-    <string name="app_name">TimelineApp</string>
+    <string name="app_name">Footstep</string>
+    <string name="app_description">Timeline Creation and Sharing App</string>
 
     <string name="navigation_drawer_open">Open navigation drawer</string>
     <string name="navigation_drawer_close">Close navigation drawer</string>
@@ -44,4 +45,6 @@
     <string name="login_checkbox_text">Remember me</string>
     <string name="home_friends_list_text">Friends</string>
     <string name="home_feed_text">Feed</string>
+    <string name="title_activity_create_event">New Event</string>
+    <string name="event_title_edit_placeholder">Event Title</string>
 </resources>

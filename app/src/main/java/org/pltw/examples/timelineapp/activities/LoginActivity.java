@@ -1,12 +1,12 @@
 package org.pltw.examples.timelineapp.activities;
 
+import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
-import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.TextView;
 
@@ -26,7 +26,6 @@ public class LoginActivity extends AppCompatActivity {
     private EditText emailEdit, passwordEdit;
     private Button loginButton;
     private TextView loginLink;
-    private CheckBox stayLoggedInCheckbox;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -38,13 +37,14 @@ public class LoginActivity extends AppCompatActivity {
 
         emailEdit = (EditText)findViewById(R.id.login_email_edit);
         passwordEdit = (EditText)findViewById(R.id.login_password_edit);
-        stayLoggedInCheckbox = (CheckBox)findViewById(R.id.login_stay_logged_in_checkbox);
         loginButton = (Button)findViewById(R.id.login_button);
         loginLink = (TextView)findViewById(R.id.login_link);
 
         loginButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+
+                final ProgressDialog dialog = ProgressDialog.show(LoginActivity.this, "Login", "Logging in...");
 
                 Backendless.UserService.login(
                         emailEdit.getText().toString(),
@@ -54,6 +54,7 @@ public class LoginActivity extends AppCompatActivity {
                             public void handleResponse(BackendlessUser response) {
                                 Intent loginIntent = new Intent(LoginActivity.this, MainActivity.class);
                                 startActivity(loginIntent);
+                                dialog.cancel();
                                 finish();
                             }
 

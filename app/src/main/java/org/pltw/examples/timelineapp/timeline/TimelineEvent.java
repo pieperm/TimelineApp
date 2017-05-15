@@ -9,13 +9,12 @@ import java.util.Date;
 public class TimelineEvent {
 
     private String title, description;
-    private Date startDate, endDate;
+    private Date date;
 
-    public TimelineEvent(String title, String description, Date startDate, Date endDate) {
+    public TimelineEvent(String title, String description, Date date) {
         this.title = title;
         this.description = description;
-        this.startDate = startDate;
-        this.endDate = endDate;
+        this.date = date;
     }
 
     public TimelineEvent() {
@@ -37,20 +36,12 @@ public class TimelineEvent {
         this.description = description;
     }
 
-    public Date getStartDate() {
-        return startDate;
+    public Date getDate() {
+        return date;
     }
 
-    public void setStartDate(Date startDate) {
-        this.startDate = startDate;
-    }
-
-    public Date getEndDate() {
-        return endDate;
-    }
-
-    public void setEndDate(Date endDate) {
-        this.endDate = endDate;
+    public void setDate(Date date) {
+        this.date = date;
     }
 
     // TODO: add a toString method using StringBuilder

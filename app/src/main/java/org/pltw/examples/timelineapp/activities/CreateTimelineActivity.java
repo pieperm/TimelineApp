@@ -14,7 +14,10 @@ import com.backendless.exceptions.BackendlessFault;
 
 import org.pltw.examples.timelineapp.R;
 import org.pltw.examples.timelineapp.timeline.Timeline;
+import org.pltw.examples.timelineapp.timeline.TimelineEvent;
 import org.pltw.examples.timelineapp.timeline.TimelinesSingleton;
+
+import java.util.ArrayList;
 
 /**
  * Created by pieperm on 3/15/17.
@@ -54,7 +57,7 @@ public class CreateTimelineActivity extends AppCompatActivity {
 
                 if(inputIsValid()) {
 
-                    Timeline timeline = new Timeline(name, description, null, null, null, false);
+                    Timeline timeline = new Timeline(name, description, new ArrayList<TimelineEvent>(), null, null, false);
                     TimelinesSingleton.getInstance().addTimeline(timeline);
 
                     Backendless.Persistence.save(timeline, new AsyncCallback<Timeline>() {

@@ -46,6 +46,13 @@
         </activity>
 
         <activity
+            android:name=".activities.CreateEventActivity"
+            android:label="@string/title_activity_create_event"
+            android:screenOrientation="portrait"
+            android:configChanges="orientation|keyboardHidden">
+        </activity>
+
+        <activity
             android:name=".activities.LoginActivity"
             android:label="@string/title_activity_login"
             android:screenOrientation="portrait"

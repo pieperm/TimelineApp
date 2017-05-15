@@ -74,6 +74,14 @@ public class Timeline {
         isPublic = aPublic;
     }
 
+    public TimelineEvent getEvent(int position) {
+        return events.get(position);
+    }
+
+    public void addEvent(TimelineEvent event) {
+        events.add(event);
+    }
+
     // TODO: Add a toString method using StringBuilder
 
 }
