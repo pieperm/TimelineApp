@@ -47,4 +47,5 @@
     <string name="home_feed_text">Feed</string>
     <string name="title_activity_create_event">New Event</string>
     <string name="event_title_edit_placeholder">Event Title</string>
+    <string name="event_date_picker_button_text">Choose Date</string>
 </resources>

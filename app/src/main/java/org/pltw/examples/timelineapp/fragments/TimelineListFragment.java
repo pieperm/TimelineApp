@@ -13,6 +13,12 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.TextView;
+import android.widget.Toast;
+
+import com.backendless.Backendless;
+import com.backendless.BackendlessCollection;
+import com.backendless.async.callback.AsyncCallback;
+import com.backendless.exceptions.BackendlessFault;
 
 import org.pltw.examples.timelineapp.R;
 import org.pltw.examples.timelineapp.activities.CreateTimelineActivity;
@@ -43,9 +49,21 @@ public class TimelineListFragment extends Fragment {
         timelinesListView.setAdapter(adapter);
         registerForContextMenu(timelinesListView);
 
-        adapter.clear();
-        adapter.addAll(TimelinesSingleton.getInstance().getTimelines());
-        adapter.notifyDataSetChanged();
+        Backendless.Persistence.of(Timeline.class).find(new AsyncCallback<BackendlessCollection<Timeline>>() {
+            @Override
+            public void handleResponse(BackendlessCollection<Timeline> response) {
+                TimelinesSingleton.getInstance().getTimelines().clear();
+                TimelinesSingleton.getInstance().getTimelines().addAll(response.getData());
+                adapter.notifyDataSetChanged();
+            }
+
+            @Override
+            public void handleFault(BackendlessFault fault) {
+                Toast.makeText(getActivity(), fault.getMessage(), Toast.LENGTH_SHORT).show();
+            }
+        });
+
+
 
         createTimelineFab.setOnClickListener(new View.OnClickListener() {
             @Override

@@ -1,7 +1,6 @@
 package org.pltw.examples.timelineapp.timeline;
 
-import java.util.ArrayList;
-import java.util.Date;
+import java.util.List;
 
 /**
  * Created by pieperm on 3/14/17.
@@ -10,17 +9,12 @@ import java.util.Date;
 public class Timeline {
 
     private String name, description;
-    private ArrayList<TimelineEvent> events;
-    private Date startDate, endDate;
-    private boolean isPublic;
+    private List<TimelineEvent> events;
 
-    public Timeline(String name, String description, ArrayList<TimelineEvent> events, Date startDate, Date endDate, boolean isPublic) {
+    public Timeline(String name, String description, List<TimelineEvent> events) {
         this.name = name;
         this.description = description;
         this.events = events;
-        this.startDate = startDate;
-        this.endDate = endDate;
-        this.isPublic = isPublic;
     }
 
     public Timeline() {
@@ -42,36 +36,12 @@ public class Timeline {
         this.description = description;
     }
 
-    public ArrayList<TimelineEvent> getEvents() {
+    public List<TimelineEvent> getEvents() {
         return events;
     }
 
-    public void setEvents(ArrayList<TimelineEvent> events) {
+    public void setEvents(List<TimelineEvent> events) {
         this.events = events;
-    }
-
-    public Date getStartDate() {
-        return startDate;
-    }
-
-    public void setStartDate(Date startDate) {
-        this.startDate = startDate;
-    }
-
-    public Date getEndDate() {
-        return endDate;
-    }
-
-    public void setEndDate(Date endDate) {
-        this.endDate = endDate;
-    }
-
-    public boolean isPublic() {
-        return isPublic;
-    }
-
-    public void setPublic(boolean aPublic) {
-        isPublic = aPublic;
     }
 
     public TimelineEvent getEvent(int position) {

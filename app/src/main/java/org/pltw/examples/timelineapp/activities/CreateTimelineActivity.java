@@ -57,7 +57,7 @@ public class CreateTimelineActivity extends AppCompatActivity {
 
                 if(inputIsValid()) {
 
-                    Timeline timeline = new Timeline(name, description, new ArrayList<TimelineEvent>(), null, null, false);
+                    Timeline timeline = new Timeline(name, description, new ArrayList<TimelineEvent>());
                     TimelinesSingleton.getInstance().addTimeline(timeline);
 
                     Backendless.Persistence.save(timeline, new AsyncCallback<Timeline>() {
